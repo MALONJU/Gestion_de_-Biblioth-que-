@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb:10.7
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+    ports:  # Correction : placé au bon niveau
+      - 3307:3306  # Correction : inversion des ports pour être plus logique
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
